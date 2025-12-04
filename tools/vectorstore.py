@@ -48,11 +48,6 @@ def search(query: str, n_results: int = 3, document_id: str | None = None) -> li
     """Search for relevant chunks, optionally filtering by document."""
     collection = get_collection()
     
-    # Debug: list all document IDs in collection
-    all_docs = list_documents()
-    print(f"[DEBUG] Available documents in DB: {all_docs}")
-    print(f"[DEBUG] Looking for document_id: '{document_id}'")
-    
     # Build query parameters
     query_params = {
         "query_texts": [query],
@@ -64,7 +59,6 @@ def search(query: str, n_results: int = 3, document_id: str | None = None) -> li
         query_params["where"] = {"document_id": document_id}
     
     results = collection.query(**query_params)
-    print(f"[DEBUG] Query returned {len(results.get('documents', [[]])[0])} results")
     
     # Format results
     chunks = []

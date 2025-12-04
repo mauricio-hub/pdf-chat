@@ -66,9 +66,7 @@ async def chat_stream(request: ChatRequest):
 
     async def generate():
         # Search for relevant chunks (with optional document filter)
-        print(f"[DEBUG] Searching for: '{request.message}' in document: '{request.document_id}'")
         results = search(request.message, n_results=3, document_id=request.document_id)
-        print(f"[DEBUG] Found {len(results)} results")
         
         if results:
             context_parts = [f"[Chunk {i+1}]\n{r['text']}" for i, r in enumerate(results)]
