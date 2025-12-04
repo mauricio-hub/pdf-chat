@@ -1,0 +1,19 @@
+# FastAPI
+fastapi[standard]==0.115.6
+uvicorn==0.32.1
+python-dotenv==1.0.1
+python-multipart==0.0.20
+
+# LangGraph + LangChain
+langgraph==0.2.60
+langchain==0.3.12
+langchain-openai==0.2.12
+
+# Vector DB
+chromadb==0.5.23
+
+# PDF Processing
+pypdf==5.1.0
+
+# HTTP client
+httpx==0.28.1
